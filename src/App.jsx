@@ -15,7 +15,6 @@ import './App.css';
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
 
-// Navigation component to handle menu interactions
 const NavigationLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,13 +42,11 @@ const NavigationLayout = () => {
     },
   ];
 
-  // Get current selected key from location
   const getCurrentKey = () => {
     const path = location.pathname.slice(1) || 'students';
     return path;
   };
 
-  // Handle menu item click
   const handleMenuClick = ({ key }) => {
     navigate(`/${key}`);
   };
