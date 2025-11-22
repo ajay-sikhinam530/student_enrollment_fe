@@ -45,11 +45,10 @@ const CoursesPage = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [formLoading, setFormLoading] = useState(false);
 
-  // Check if user is authenticated
   const isAuthenticated = instructorService.isAuthenticated();
   const currentInstructor = instructorService.getCurrentInstructor();
 
-  // Fetch courses data
+
   const fetchCourses = async (page = 1, limit = 10, search = '') => {
     setLoading(true);
     try {
@@ -73,23 +72,23 @@ const CoursesPage = () => {
     }
   };
 
-  // Load courses on component mount
+
   useEffect(() => {
     fetchCourses();
   }, []);
 
-  // Handle table pagination
+
   const handleTableChange = (paginationConfig) => {
     fetchCourses(paginationConfig.current, paginationConfig.pageSize, searchText);
   };
 
-  // Handle search
+
   const handleSearch = (value) => {
     setSearchText(value);
     fetchCourses(1, pagination.pageSize, value);
   };
 
-  // Handle create/edit course
+
   const handleSubmit = async (values) => {
     setFormLoading(true);
     try {
