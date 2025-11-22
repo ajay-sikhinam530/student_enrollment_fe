@@ -49,6 +49,7 @@ const NavigationLayout = () => {
     return path;
   };
 
+  // Handle menu item click
   const handleMenuClick = ({ key }) => {
     navigate(`/${key}`);
   };
